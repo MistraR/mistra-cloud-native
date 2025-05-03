@@ -10,7 +10,7 @@ import (
 )
 
 type PodHandler struct {
-	//注意这里的类型实 IPodDataService 接口类型
+	//注意这里的类型是 IPodDataService 接口类型
 	PodDataService service.IPodDataService
 }
 
@@ -79,7 +79,6 @@ func (e *PodHandler) UpdatePod(ctx context.Context, req *pod.PodInfo, rsp *pod.R
 	}
 	e.PodDataService.UpdatePod(podModel)
 	return nil
-
 }
 
 // 查询单个信息
@@ -96,7 +95,6 @@ func (e *PodHandler) FindPodByID(ctx context.Context, req *pod.PodId, rsp *pod.P
 		return err
 	}
 	return nil
-
 }
 
 // 查询所有pod

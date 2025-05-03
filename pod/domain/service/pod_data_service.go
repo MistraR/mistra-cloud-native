@@ -55,7 +55,6 @@ func (u *PodDataService) CreateToK8s(podInfo *pod.PodInfo) (err error) {
 		common.Error("Pod " + podInfo.PodName + "已经存在")
 		return errors.New("Pod " + podInfo.PodName + " 已经存在")
 	}
-
 }
 
 // 更新deployment，pod
@@ -103,7 +102,7 @@ func (u *PodDataService) SetDeployment(podInfo *pod.PodInfo) {
 		Namespace: podInfo.PodNamespace,
 		Labels: map[string]string{
 			"app-name": podInfo.PodName,
-			"author":   "Caplost",
+			"author":   "Mistra",
 		},
 	}
 	deployment.Name = podInfo.PodName

@@ -112,13 +112,13 @@ func main() {
 	// 4.sudo chown root: /usr/local/bin/kubectl
 	// 5.kubectl version --client
 	// 6.集群模式下直接拷贝服务端~/.kube/config 文件到本机 ~/.kube/confg 中
-	//   注意：- config中的域名要能解析正确
+	//   注意：- config中的域名要能解析正确，server: https://apiserver.caplost.com:6443 修改hosts 指向master节点公网ip
 	//        - 生产环境可以创建另一个证书
 	// 7.kubectl get ns 查看是否正常
 	//
 	//创建k8s连接
-	//在集群外部使用
-	//-v /Users/cap/.kube/config:/root/.kube/config
+	//在集群外部使用，打镜像时需要把该文件拷贝到镜像里面
+	//-v /Users/mistra/.kube/config:/root/.kube/config
 	var kubeconfig *string
 	if home := homedir.HomeDir(); home != "" {
 		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "kubeconfig file 在当前系统中的地址")
@@ -169,10 +169,10 @@ func main() {
 	service.Init()
 
 	//只能初始化一次，初始化数据表
-	//err = repository.NewPodRepository(db).InitTable()
-	//if err != nil {
-	//	common.Fatal(err)
-	//}
+	err = repository.NewPodRepository(db).InitTable()
+	if err != nil {
+		common.Fatal(err)
+	}
 
 	//注册句柄
 	podDataService := service2.NewPodDataService(repository.NewPodRepository(db), clientset)
