@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package base;
+
+option go_package = "./base/proto/base;base";
+
+// Base service definition
+service Base {
+    rpc Call(Request) returns (Response);                    // 普通 RPC
+    rpc Stream(StreamingRequest) returns (stream StreamingResponse);  // 服务端流式
+    rpc PingPong(stream Ping) returns (stream Pong);         // 双向流式
+}
+
+// 普通 RPC 请求和响应
+message Request {
+    string name = 1;
+}
+
+message Response {
+    string msg = 1;
+}
+
+// 服务端流请求和响应
+message StreamingRequest {
+    int32 count = 1;
+}
+
+message StreamingResponse {
+    int64 count = 1;
+}
+
+// 双向流的消息
+message Ping {
+    string stroke = 1;
+}
+
+message Pong {
+    string stroke = 1;
+}

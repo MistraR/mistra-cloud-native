@@ -1,0 +1,7 @@
+{"level":"fatal","ts":"2025-05-04T07:30:22.130+0800","caller":"base/main.go:42","msg":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"fatal","ts":"2025-05-04T07:31:33.284+0800","caller":"base/main.go:42","msg":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"fatal","ts":"2025-05-04T07:34:35.286+0800","caller":"base/main.go:42","msg":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"info","ts":"2025-05-04T07:34:56.604+0800","caller":"base/main.go:45","msg":"连接mysql 成功"}
+{"level":"info","ts":"2025-05-04T07:35:04.325+0800","caller":"base/main.go:66","msg":"添加 日志系统 ！"}
+{"level":"info","ts":"2025-05-04T17:25:54.760+0800","caller":"base/main.go:43","msg":"连接mysql 成功"}
+{"level":"info","ts":"2025-05-04T17:25:54.763+0800","caller":"base/main.go:64","msg":"添加 日志系统 ！"}

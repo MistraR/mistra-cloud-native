@@ -25,7 +25,7 @@ import (
 
 var (
 	//服务地址
-	hostIp = "192.168.0.105"
+	hostIp = "101.132.113.82"
 	//服务地址
 	serviceHost = hostIp
 	//服务端口
